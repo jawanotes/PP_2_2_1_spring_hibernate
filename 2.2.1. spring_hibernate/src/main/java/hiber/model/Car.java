@@ -5,7 +5,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="cars")
-//@Component
 public class Car {
     @Id
     @GeneratedValue
@@ -49,4 +48,9 @@ public class Car {
         this.series = series;
     }
 
+    @Override
+    public String toString() {
+        return "Car model = " + model + '\n' +
+                "Car series = " + series + '\n';
+    }
 }

@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-//@Component
 public class User {
 
    @Id
@@ -23,7 +22,6 @@ public class User {
 
    @OneToOne(cascade = CascadeType.ALL)
    @JoinColumn(name = "car_id")
-   //@Autowired
    private Car car;
 
    public User() {}
@@ -72,5 +70,14 @@ public class User {
 
    public void setCar(Car car) {
       this.car = car;
+   }
+
+   @Override
+   public String toString() {
+      return "Id = " + id + '\n' +
+              "First Name = " + firstName + '\n' +
+              "Last Name = " + lastName + '\n' +
+              "Email = " + email + '\n' +
+              ((car != null) ? car.toString() : "");
    }
 }
